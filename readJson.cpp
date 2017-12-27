@@ -106,7 +106,7 @@ void read_jsons1(string jsons_path, string imgDB, vector<ImgOCRResult>& ocrResul
                
 		int w = img.cols;
 		int h = img.rows; 
-        float alpha = sqrt(2/3.0);
+        float alpha = sqrt(1/2.0);
 		float a1 = (1-alpha)/2;
         float a2 = (1+alpha)/2;
 		cv::rectangle(img,cv::Point(int(a1*w),int(a1*h)),cv::Point(int(a2*w),int(a2*h)),cv::Scalar(0,255,0),2); 

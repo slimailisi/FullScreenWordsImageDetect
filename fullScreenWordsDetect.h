@@ -2,6 +2,10 @@
 #define FULL_SCREEN_WORDS_DETECT
 
 #include "readJson.h"
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+
 typedef unsigned int uint;
 using namespace std;
 
@@ -11,9 +15,9 @@ public:
  FullScreenWordsDetect(float areaTh=0.0f, uint wordNumTh=0, float alpha = 1);
  ~FullScreenWordsDetect();
  void Initiate(const ImgOCRResult& ocrResult);
- bool IsFullScreenWords();
- bool IsFullScreenWordsV1();
-
+ bool IsFullScreenWords(float& ratio);
+ bool IsFullScreenWordsV1(float& ratio);
+ bool IsFullScreenWordsV2(float& ratio);
 
 private:
  ImgOCRResult m_ocrResult;

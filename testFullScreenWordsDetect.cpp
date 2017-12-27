@@ -22,6 +22,7 @@ int main(int argc, char** argv)
 	float areaTh = 0.25;
 	uint wordNumTh = 5;
 	float alpha = 1;
+	float ratio = 0;
 	vector<ImgOCRResult> ocrResults;
 
 	if(argc < 7)
@@ -89,11 +90,11 @@ int main(int argc, char** argv)
 	int n = ocrResults.size();
 	cout<<n<<endl;
 	ofstream fout("test_detect.txt");
-	FullScreenWordsDetect full_screen_detect(areaTh,wordNumTh);
+	FullScreenWordsDetect full_screen_detect(areaTh,wordNumTh,alpha);
 	for(int i=0; i<n; i++)
 	{
 		full_screen_detect.Initiate(ocrResults.at(i));
-		bool isFullScreenWords = full_screen_detect.IsFullScreenWordsV1();
+		bool isFullScreenWords = full_screen_detect.IsFullScreenWordsV1(ratio);
 
 		fout<<"id: " << i << endl;
 		fout<<ocrResults.at(i).name<<endl;
@@ -103,7 +104,7 @@ int main(int argc, char** argv)
 			fout<< ocrResults.at(i).words.at(j)<<" "<<ocrResults.at(i).locs.at(j).left <<" "<< ocrResults.at(i).locs.at(j).top <<" "<<ocrResults.at(i).locs.at(j).width <<" "<<ocrResults.at(i).locs.at(j).height <<" " <<endl;
 		}
 		fout<<"is full screen words:  "<<isFullScreenWords<<endl<<endl;
-        cout<<"ID: "<<i<<"    is full screen words:"<<isFullScreenWords<<endl;
+        cout<<"ID: "<<i<<"    is full screen words:"<<isFullScreenWords<<endl<<endl;
 
 
 	}

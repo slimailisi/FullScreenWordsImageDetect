@@ -1,4 +1,4 @@
-OPENCV_DIR = /home/yuanyong/opencv3
+OPENCV_DIR = /home/lvyue/env/opencv-3.3.1
 
 CXX=g++
 CXXFLAGS = -std=c++0x -O3 -g -Wall -fmessage-length=0 -I$(OPENCV_DIR)/include
